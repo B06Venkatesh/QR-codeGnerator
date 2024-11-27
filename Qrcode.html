@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        *{
+            margin:0; 
+            padding:0;
+            font-family:sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: beige;
+        } 
+        .container{
+            width:500px;
+            padding:25px 35px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #fff;
+            border-radius: 10px;}
+            .container  input{
+                width : 100%;
+                height: 50px;
+                border: 1px solid #494eea; 
+                outline:0;
+                padding:10px;
+                margin:10px 0 10px; 
+                border-radius: 5px;
+            }
+            .container button{
+                width:100%; 
+                height:50px;
+                background-color: #494eea; 
+                color:#fff; 
+                border:0; 
+                outline:0;
+                border-radius: 5px; 
+                box-shadow : 0 10px 10px rgba(0,0,0,1); 
+                cursor: pointer; 
+                margin: 20px 0;
+                font-weight: 500;
+            } ;
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Welcome to Gpay</h1>
+    <label>Enter your Phno Number</label>
+    <div>
+    <input type="number" id="num" placeholder="Enter your Number"><br><br><br>
+    </div>
+    <label>Enter your Username</label>
+    <div>
+    <input type="text"   id="name" placeholder="Enter your username"><br><br><br></div>
+    <img src="" id="img"><br><br>
+    <button onclick="qrgenerator()">Generator QR Code</button>
+    </div>
+    <script>
+        let image = document.getElementById("img"); 
+        let txt = document.getElementById("name"); 
+        function qrgenerator(){
+         image.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + txt.value;
+        }
+    </script>
+</body>
+</html>
